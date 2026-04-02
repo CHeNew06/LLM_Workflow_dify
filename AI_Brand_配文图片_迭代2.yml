@@ -1,0 +1,1148 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: AI_Brand_配文图片_迭代2
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/azure_openai:0.0.12@a8d5448083aededa394d5940f878f6151f4a472e77766222e654840c74d10287
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/spark:0.0.2@2bcb4248ac24c9cd1de59ac96e16f5d47c332fb99121249071f8641987399da8
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        sourceType: start
+        targetType: llm
+      id: 1742383449453-llm
+      selected: false
+      source: '1742383449453'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: if-else
+      id: llm-source-1742515270723-target
+      selected: false
+      source: llm
+      sourceHandle: source
+      target: '1742515270723'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-true-1742515356243-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 'true'
+      target: '1742515356243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-162de096-a4dd-41a4-a6e3-466363fc220e-1742515356243-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 162de096-a4dd-41a4-a6e3-466363fc220e
+      target: '1742515356243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-162de096-a4dd-41a4-a6e3-466363fc220e-17425153588670-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 162de096-a4dd-41a4-a6e3-466363fc220e
+      target: '17425153588670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-105ac08f-9282-4844-80a5-32d287c5a902-1742515356243-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 105ac08f-9282-4844-80a5-32d287c5a902
+      target: '1742515356243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-105ac08f-9282-4844-80a5-32d287c5a902-17425153588670-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 105ac08f-9282-4844-80a5-32d287c5a902
+      target: '17425153588670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-105ac08f-9282-4844-80a5-32d287c5a902-17425153998990-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 105ac08f-9282-4844-80a5-32d287c5a902
+      target: '17425153998990'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-744fe3ba-a395-4cb0-bc5a-44f76b53b7c0-1742515356243-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+      target: '1742515356243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-744fe3ba-a395-4cb0-bc5a-44f76b53b7c0-17425153588670-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+      target: '17425153588670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-744fe3ba-a395-4cb0-bc5a-44f76b53b7c0-17425153998990-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+      target: '17425153998990'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-744fe3ba-a395-4cb0-bc5a-44f76b53b7c0-17425154108830-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+      target: '17425154108830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-d839795c-691c-4399-998d-a12c28e8377e-1742515356243-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: d839795c-691c-4399-998d-a12c28e8377e
+      target: '1742515356243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-d839795c-691c-4399-998d-a12c28e8377e-17425153588670-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: d839795c-691c-4399-998d-a12c28e8377e
+      target: '17425153588670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-d839795c-691c-4399-998d-a12c28e8377e-17425153998990-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: d839795c-691c-4399-998d-a12c28e8377e
+      target: '17425153998990'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-d839795c-691c-4399-998d-a12c28e8377e-17425154108830-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: d839795c-691c-4399-998d-a12c28e8377e
+      target: '17425154108830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-d839795c-691c-4399-998d-a12c28e8377e-17425154196580-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: d839795c-691c-4399-998d-a12c28e8377e
+      target: '17425154196580'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-80fd62ed-8817-4c89-be22-4825157cbbf2-1742515356243-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '1742515356243'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-80fd62ed-8817-4c89-be22-4825157cbbf2-17425153588670-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '17425153588670'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-80fd62ed-8817-4c89-be22-4825157cbbf2-17425153998990-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '17425153998990'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-80fd62ed-8817-4c89-be22-4825157cbbf2-17425154108830-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '17425154108830'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-80fd62ed-8817-4c89-be22-4825157cbbf2-17425154196580-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '17425154196580'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: tool
+      id: 1742515270723-80fd62ed-8817-4c89-be22-4825157cbbf2-17425154422340-target
+      selected: false
+      source: '1742515270723'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '17425154422340'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-true-answer-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: 'true'
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-162de096-a4dd-41a4-a6e3-466363fc220e-1742515752626-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: 162de096-a4dd-41a4-a6e3-466363fc220e
+      target: '1742515752626'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-105ac08f-9282-4844-80a5-32d287c5a902-1742515770898-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: 105ac08f-9282-4844-80a5-32d287c5a902
+      target: '1742515770898'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-744fe3ba-a395-4cb0-bc5a-44f76b53b7c0-1742515773363-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+      target: '1742515773363'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-d839795c-691c-4399-998d-a12c28e8377e-1742515775778-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: d839795c-691c-4399-998d-a12c28e8377e
+      target: '1742515775778'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-80fd62ed-8817-4c89-be22-4825157cbbf2-1742515778042-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: 80fd62ed-8817-4c89-be22-4825157cbbf2
+      target: '1742515778042'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: if-else
+        targetType: answer
+      id: 17425183084480-false-1742518480856-target
+      selected: false
+      source: '17425183084480'
+      sourceHandle: 'false'
+      target: '1742518480856'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 1742515356243-source-17425183084480-target
+      selected: false
+      source: '1742515356243'
+      sourceHandle: source
+      target: '17425183084480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 17425153588670-source-17425183084480-target
+      selected: false
+      source: '17425153588670'
+      sourceHandle: source
+      target: '17425183084480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 17425153998990-source-17425183084480-target
+      selected: false
+      source: '17425153998990'
+      sourceHandle: source
+      target: '17425183084480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 17425154108830-source-17425183084480-target
+      selected: false
+      source: '17425154108830'
+      sourceHandle: source
+      target: '17425183084480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 17425154196580-source-17425183084480-target
+      source: '17425154196580'
+      sourceHandle: source
+      target: '17425183084480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: if-else
+      id: 17425154422340-source-17425183084480-target
+      source: '17425154422340'
+      sourceHandle: source
+      target: '17425183084480'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: image_type
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: image_type
+        - label: image_style
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: image_style
+        - label: image_size
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: image_size
+        - label: num
+          max_length: 48
+          options: []
+          required: true
+          type: number
+          variable: num
+      height: 186
+      id: '1742383449453'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            frequency_penalty: 0.8
+            temperature: 0.6
+            top_p: 0.61
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 5ab6198a-fa04-4877-9ecd-426d3a19dcd4
+          role: system
+          text: '你是一位图片设计师，任务是根据用户提供的相关描述给出相关配图的生成关键词给另一个智能体。你的目标是提出具体、可操作的建议，超越概念层面，针对给定风格和原文提供详实画图描述。请先仔细阅读以下原文分析其提出的所有内容：
+
+
+            -用户的文案：{{#sys.query#}}
+
+            -用户想要的图片类型：{{#1742383449453.image_type#}}
+
+
+            接下来，请考虑用户提出的以下特定条件：
+
+
+            -绘画风格：{{#1742383449453.image_style#}}
+
+            -图片尺寸：{{#1742383449453.image_size#}}
+
+            特定条件为用户的要求所以你必须将他包含到你输出的关键词内。
+
+
+            基于用户的特定条件和原文，请提供：
+
+            1. 只需要给出1张图片的具体的绘画策略，详细且可操作，提供具体的元素描述和绘画步骤。
+
+            2. 你的绘画描述必须要和用户的文案具有强烈的相关性，这一点非常非常只要请你特别注意。
+
+
+
+            ## Constraints :
+
+            - 遵守伦理规范和使用政策，拒绝提供与黄赌毒相关的内容
+
+            - 严格遵守数据隐私和安全性原则
+
+            - 请严格按照 <OutputFormat> 输出内容，只需要格式描述的部分，如果产生其他内容则不输出
+
+            ## OutputFormat :
+
+            - 直接输出正文，不要有任何多余的解释和说明。
+
+            - 不要用蹩脚牵强的比喻和类比，也不要用无法实现的话语。
+
+            - 注意生成的字数不能超过300字。
+
+
+
+            <example>标签内是一个得到生成图片最理想的关键词我希望你在输出时的风格能和他相似，注意这只是一个示例，你千万不能作为输出输出它：
+
+            <example>
+
+            例如：画一张“局部机甲的渲染图片，一个高质量白色机甲局部近距离特写、未喷漆原始材料、有细节描写、画面精细顺滑无颗粒、局部特写、注意不同金属表明质感表达，画面构图高级疏密有度、有景深、有透视、空间布局合理，有电影画面质感、高清4K、有明暗和光影变化体现画面重点。
+            风格为二次元 场景在办公室 画面要求大光圈 构图上有主体居中 ”的图片给我
+
+            </example>'
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: llm
+      position:
+        x: 383.4564867324011
+        y: 282
+      positionAbsolute:
+        x: 383.4564867324011
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1742515356243.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 102
+      id: answer
+      position:
+        x: 2258.7795857663864
+        y: -183.90921448088753
+      positionAbsolute:
+        x: 2258.7795857663864
+        y: -183.90921448088753
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 5bc3b6a8-43e2-479c-8ec6-6c6fe370ed11
+            value: '1'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 'true'
+          logical_operator: and
+        - case_id: 162de096-a4dd-41a4-a6e3-466363fc220e
+          conditions:
+          - comparison_operator: '='
+            id: b770adf2-4649-434b-b001-7b8b27b40725
+            value: '2'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 162de096-a4dd-41a4-a6e3-466363fc220e
+          logical_operator: and
+        - case_id: 105ac08f-9282-4844-80a5-32d287c5a902
+          conditions:
+          - comparison_operator: '='
+            id: d67637dc-4be7-4e36-97cc-a6a7377a50ac
+            value: '3'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 105ac08f-9282-4844-80a5-32d287c5a902
+          logical_operator: and
+        - case_id: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+          conditions:
+          - comparison_operator: '='
+            id: 205978f7-e1d2-451e-9920-fb871b9d81e6
+            value: '4'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+          logical_operator: and
+        - case_id: d839795c-691c-4399-998d-a12c28e8377e
+          conditions:
+          - comparison_operator: '='
+            id: 5955b972-1bda-4f7c-8494-a6c0c3768720
+            value: '5'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: d839795c-691c-4399-998d-a12c28e8377e
+          logical_operator: and
+        - case_id: 80fd62ed-8817-4c89-be22-4825157cbbf2
+          conditions:
+          - comparison_operator: '='
+            id: eb090637-6743-4152-840f-15e5d588fc8a
+            value: '6'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 80fd62ed-8817-4c89-be22-4825157cbbf2
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 363
+      id: '1742515270723'
+      position:
+        x: 678.4052065800118
+        y: 282
+      positionAbsolute:
+        x: 678.4052065800118
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成线程1
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#llm.text#}}'
+        type: tool
+      height: 51
+      id: '1742515356243'
+      position:
+        x: 1192.724815414487
+        y: 179.86615722992286
+      positionAbsolute:
+        x: 1192.724815414487
+        y: 179.86615722992286
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成 线程2
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#llm.text#}}'
+        type: tool
+      height: 51
+      id: '17425153588670'
+      position:
+        x: 1192.724815414487
+        y: 252.37917367995254
+      positionAbsolute:
+        x: 1192.724815414487
+        y: 252.37917367995254
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成 线程3
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#llm.text#}}'
+        type: tool
+      height: 51
+      id: '17425153998990'
+      position:
+        x: 1192.724815414487
+        y: 319.7026032900059
+      positionAbsolute:
+        x: 1192.724815414487
+        y: 319.7026032900059
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成 线程4
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#llm.text#}}'
+        type: tool
+      height: 51
+      id: '17425154108830'
+      position:
+        x: 1192.724815414487
+        y: 388.51301645002974
+      positionAbsolute:
+        x: 1192.724815414487
+        y: 388.51301645002974
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成 线程5
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#llm.text#}}'
+        type: tool
+      height: 51
+      id: '17425154196580'
+      position:
+        x: 1192.724815414487
+        y: 480.05130164500304
+      positionAbsolute:
+        x: 1192.724815414487
+        y: 480.05130164500304
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成 线程6
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#llm.text#}}'
+        type: tool
+      height: 51
+      id: '17425154422340'
+      position:
+        x: 1192.724815414487
+        y: 575.605206580012
+      positionAbsolute:
+        x: 1192.724815414487
+        y: 575.605206580012
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1742515356243.files#}}{{#17425153588670.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 121
+      id: '1742515752626'
+      position:
+        x: 2264.057617409478
+        y: -50.03667433748413
+      positionAbsolute:
+        x: 2264.057617409478
+        y: -50.03667433748413
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1742515356243.files#}}{{#17425153588670.files#}}{{#17425153998990.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 140
+      id: '1742515770898'
+      position:
+        x: 2258.7795857663864
+        y: 108.27400004286494
+      positionAbsolute:
+        x: 2258.7795857663864
+        y: 108.27400004286494
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1742515356243.files#}}
+
+          {{#17425153588670.files#}}
+
+          {{#17425153998990.files#}}
+
+          {{#17425154108830.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 4
+        type: answer
+        variables: []
+      height: 159
+      id: '1742515773363'
+      position:
+        x: 2264.057617409478
+        y: 352.7073693869553
+      positionAbsolute:
+        x: 2264.057617409478
+        y: 352.7073693869553
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1742515356243.files#}}
+
+          {{#17425153588670.files#}}
+
+          {{#17425153998990.files#}}
+
+          {{#17425154108830.files#}}
+
+          {{#17425154196580.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 5
+        type: answer
+        variables: []
+      height: 178
+      id: '1742515775778'
+      position:
+        x: 2264.057617409478
+        y: 602.5428480001258
+      positionAbsolute:
+        x: 2264.057617409478
+        y: 602.5428480001258
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: '{{#1742515356243.files#}}
+
+          {{#17425153588670.files#}}
+
+          {{#17425153998990.files#}}
+
+          {{#17425154108830.files#}}
+
+          {{#17425154196580.files#}}
+
+          {{#17425154422340.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 197
+      id: '1742515778042'
+      position:
+        x: 2264.057617409478
+        y: 835.300746657764
+      positionAbsolute:
+        x: 2264.057617409478
+        y: 835.300746657764
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: 5bc3b6a8-43e2-479c-8ec6-6c6fe370ed11
+            value: '1'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 'true'
+          logical_operator: and
+        - case_id: 162de096-a4dd-41a4-a6e3-466363fc220e
+          conditions:
+          - comparison_operator: '='
+            id: b770adf2-4649-434b-b001-7b8b27b40725
+            value: '2'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 162de096-a4dd-41a4-a6e3-466363fc220e
+          logical_operator: and
+        - case_id: 105ac08f-9282-4844-80a5-32d287c5a902
+          conditions:
+          - comparison_operator: '='
+            id: d67637dc-4be7-4e36-97cc-a6a7377a50ac
+            value: '3'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 105ac08f-9282-4844-80a5-32d287c5a902
+          logical_operator: and
+        - case_id: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+          conditions:
+          - comparison_operator: '='
+            id: 205978f7-e1d2-451e-9920-fb871b9d81e6
+            value: '4'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 744fe3ba-a395-4cb0-bc5a-44f76b53b7c0
+          logical_operator: and
+        - case_id: d839795c-691c-4399-998d-a12c28e8377e
+          conditions:
+          - comparison_operator: '='
+            id: 5955b972-1bda-4f7c-8494-a6c0c3768720
+            value: '5'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: d839795c-691c-4399-998d-a12c28e8377e
+          logical_operator: and
+        - case_id: 80fd62ed-8817-4c89-be22-4825157cbbf2
+          conditions:
+          - comparison_operator: '='
+            id: eb090637-6743-4152-840f-15e5d588fc8a
+            value: '6'
+            varType: number
+            variable_selector:
+            - '1742383449453'
+            - num
+          id: 80fd62ed-8817-4c89-be22-4825157cbbf2
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支 2
+        type: if-else
+      height: 363
+      id: '17425183084480'
+      position:
+        x: 1748.0141900148033
+        y: 179.86615722992286
+      positionAbsolute:
+        x: 1748.0141900148033
+        y: 179.86615722992286
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        answer: 生成失败，请重新检查。
+        desc: ''
+        selected: false
+        title: 直接回复 7
+        type: answer
+        variables: []
+      height: 99
+      id: '1742518480856'
+      position:
+        x: 2264.057617409478
+        y: 1203.7769882679577
+      positionAbsolute:
+        x: 2264.057617409478
+        y: 1203.7769882679577
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 67.48793837792823
+      y: 150.32922315211232
+      zoom: 0.4774207941627973
+  rag_pipeline_variables: []

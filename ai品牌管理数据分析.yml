@@ -1,0 +1,300 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: ai品牌管理数据分析
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1748336377102-source-1748336403141-target
+      source: '1748336377102'
+      sourceHandle: source
+      target: '1748336403141'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1748336403141-source-1748330253632-target
+      source: '1748336403141'
+      sourceHandle: source
+      target: '1748330253632'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1748326738330-source-1748336377102-target
+      source: '1748326738330'
+      sourceHandle: source
+      target: '1748336377102'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - allowed_file_extensions: []
+          allowed_file_types:
+          - image
+          allowed_file_upload_methods:
+          - local_file
+          - remote_url
+          label: all_fans_num
+          max_length: 256
+          options: []
+          required: true
+          type: text-input
+          variable: all_fans_num
+        - label: platform
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: platform
+        - label: interestDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: interestDistribution
+        - label: genderDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: genderDistribution
+        - label: geographicalDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: geographicalDistribution
+        - label: activeDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: activeDistribution
+        - label: ageDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: ageDistribution
+        - label: deviceDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: deviceDistribution
+        - label: flowDistribution
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: flowDistribution
+        - label: fansSource
+          max_length: 2048
+          options: []
+          required: true
+          type: paragraph
+          variable: fansSource
+      height: 342
+      id: '1748326738330'
+      position:
+        x: 181.73571314916808
+        y: 261
+      positionAbsolute:
+        x: 181.73571314916808
+        y: 261
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1748336403141'
+          - text
+          variable: Analysis_Fansdata
+        selected: false
+        title: 结束
+        type: end
+      height: 88
+      id: '1748330253632'
+      position:
+        x: 1806.0988196230855
+        y: 282
+      positionAbsolute:
+        x: 1806.0988196230855
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            frequency_penalty: 0.6
+            temperature: 0.7
+            top_p: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: bb3431e9-0d54-4bc3-97fb-e77713529809
+          role: system
+          text: "你是一位数据处理人员，任务是解释用户所给的数据，请你特别注意每个变量为一个数据组，item为分布的种类其后所跟的value为该种类的值，现在请你阅读原文：\n\
+            \n{{#1748326738330.all_fans_num#}}为所有粉丝的数量；\n{{#1748326738330.interestDistribution#}}为粉丝兴趣分布；\n\
+            {{#1748326738330.genderDistribution#}}为粉丝性别分布，男:1,女:2；\n{{#1748326738330.geographicalDistribution#}}为粉丝地域分布；{{#1748326738330.activeDistribution#}}为粉丝活跃天数分布；\n\
+            {{#1748326738330.ageDistribution#}}为粉丝年龄分布；\n{{#1748326738330.deviceDistribution#}}为粉丝设备分布；\n\
+            {{#1748326738330.flowDistribution#}}为粉丝流量贡献分布，且流量贡献种类有vv是指粉丝观看pv流量贡献，like_cnt是点赞流量贡献，comment_cnt是评论流量贡献，share_video_cnt是分享流量贡献；\n\
+            {{#1748326738330.fansSource#}}粉丝来源分布，percent为来源占比，sourceType为来源key,粉丝来源，包括直播、新用户引导页、视频详情页、面对面、发现页、他人页、搜索、好友推荐、添加好友页、他人关注列表、feed视频(推人)、feed视频(非推人)、未知、其它等；\n\
+            \n然后请你基于原文给出对数据的整理结果，注意结果不需要多余解释。一定要基于数据处理。\n\n<example>标签内是一个最优秀的生成结果，你需要参考这个示例的格式等，注意这只是一个示例，你千万不能作为输出输出它：\n\
+            <example>\n对粉丝画像的统计结果为：\n1、兴趣分布：三农（136）、亲子（1,397）、人文社科（622）\n2、性别分布：性别男（1,834）、性别男（1,164）\n\
+            3、活跃时段分布：0~4小时（1,253）、5~8小时（80）、9~12小时（73）\n4、地域分布：山东（198）、贵州（55）、内蒙古（36）\n\
+            5、年龄分布：12-17岁（21）、50岁以上（920）、18-23岁（155）\n6、流量贡献分布：\n 粉丝观看PV流量贡献（vv）：粉丝1\
+            \ / 全体1\n点赞流量贡献（like_cnt）：粉丝0 / 全体0\n评论流量贡献（comment_cnt）：粉丝0 / 全体0\n视频分享流量贡献（share_video_cnt）：粉丝0\
+            \ / 全体0\n7、设备分布：魅蓝（2）、华为（478）、荣耀（293）\n8、粉丝来源\n其他：16.67%\n</example>\n\
+            最后结果不做多余解释，直接输出整理结果即可。"
+        selected: false
+        structured_output_enabled: false
+        title: 数据处理
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1748336377102'
+      position:
+        x: 669.3933502101852
+        y: 282
+      positionAbsolute:
+        x: 669.3933502101852
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: d023393a-e5ac-4e23-b261-ec97bdb93383
+          role: system
+          text: "你是一位抖音数据分析师，目标是基于给定的用户粉丝数据生成用户画像分析、流量互动洞察、风险预警及优化建议。现在请你查看原文：\n{{#1748336377102.text#}}\n\
+            基于原文请你完成：\n用户画像\n核心用户特征（性别、年龄、地域、活跃时段、兴趣偏好）\n设备使用与内容消费场景的关联性推测\n流量互动分析\n\
+            粉丝与非粉丝在互动行为（点赞、评论、分享）中的贡献对比\n异常值解读（如点赞粉丝量 > 总点赞量）\n风险与机会\n用户结构单一性风险（如地域集中、年龄断层）\n\
+            高潜力领域（兴趣分布中可拓展的内容方向）\n优化建议\n针对低互动行为的激活策略\n粉丝增长与留存的关键抓手\n\n\n\n输出格式示例(请注意这只是一个输出示例，请不要把他作为结果输出)：\n\
+            <example>\n### 核心洞察  \n1. **核心用户画像**：50+岁山东女性，华为设备用户，深夜活跃（0~4点），关注亲子内容\
+            \  \n2. **关键问题**：  \n   - 互动率倒挂（粉丝点赞量1,212 > 总点赞量777，数据逻辑异常）  \n   - 青年用户（18-23岁）占比仅5.1%，内容老龄化风险\
+            \  \n3. **优化方向**：  \n   - 亲子内容精细化运营（当前占比46.4%）  \n   - 通过人文社科内容（20.7%）渗透高学历青年群体\
+            \  \n   - 修复粉丝来源埋点（当前\"其他\"来源占16.67%，数据缺失严重）  </example>"
+        selected: false
+        title: LLM 2
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1748336403141'
+      position:
+        x: 1358.5687988409416
+        y: 282
+      positionAbsolute:
+        x: 1358.5687988409416
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: 12.56912543325916
+      y: -40.77000457346702
+      zoom: 0.8572439641972808
+  rag_pipeline_variables: []

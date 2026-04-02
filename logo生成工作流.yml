@@ -1,0 +1,366 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: logo生成工作流
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/deepseek:0.0.5@fd6efd37c2a931911de8ab9ca3ba2da303bef146d45ee87ad896b04b36d09403
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/spark:0.0.2@2bcb4248ac24c9cd1de59ac96e16f5d47c332fb99121249071f8641987399da8
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        sourceType: start
+        targetType: llm
+      id: 1742278619124-source-1742278629805-target
+      source: '1742278619124'
+      sourceHandle: source
+      target: '1742278629805'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1742278629805-source-1742278735821-target
+      source: '1742278629805'
+      sourceHandle: source
+      target: '1742278735821'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: end
+      id: 1742278735821-source-1742279917726-target
+      source: '1742278735821'
+      sourceHandle: source
+      target: '1742279917726'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: llm
+        targetType: tool
+      id: 1742278629805-source-1742280484822-target
+      source: '1742278629805'
+      sourceHandle: source
+      target: '1742280484822'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        sourceType: tool
+        targetType: end
+      id: 1742280484822-source-1742279917726-target
+      source: '1742280484822'
+      sourceHandle: source
+      target: '1742279917726'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables:
+        - label: product_name
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: product_name
+        - label: industry
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: industry
+        - label: age_group
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: age_group
+        - label: gender
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: gender
+        - label: brand_description
+          max_length: 2048
+          options: []
+          required: false
+          type: paragraph
+          variable: brand_description
+      height: 212
+      id: '1742278619124'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: deepseek-chat
+          provider: langgenius/deepseek/deepseek
+        prompt_template:
+        - id: 8857bc2f-15e7-4714-bce9-60a07681b36c
+          role: system
+          text: "你是一位logo设计大师，任务是根据提供的品牌名称（公司名称）提供logo设计策略。针对给定的原文提供详细的设计方案。\n接下来请考虑用户输入的信息：\n\
+            -品牌名称（公司名称）：{{#1742278619124.product_name#}}\n-公司所属行业：{{#1742278619124.industry#}}\n\
+            -产品目标年龄段：{{#1742278619124.age_group#}}\n-产品目标受众：{{#1742278619124.gender#}}\n\
+            -用户对于自己品牌的描述{{#1742278619124.brand_description#}}\n\n根据原文所有内容，给出一个能设计出一个独特且具有代表性的logo的设计方案。\n\
+            \n接下来logo设计必须考虑的以下几点：\n1.logo不可以杂乱无章。\n2.logo应简洁、易于识别，并能传达公司的核心价值和行业特点。\n\
+            3. 确保logo设计符合现代设计趋势，避免过于复杂或难以理解的元素，且不应该太过分散元素数量不宜过多。\n4. 输出logo设计时，不要包含任何XML标签，仅提供视觉元素。\n\
+            5.logo式设计时图片中不能包含任何汉字或英文字母。\n6. 将生成的图片保存为高分辨率文件，并确保图片内容清晰、美观。\n\n------一个专业的\
+            \ Logo 是品牌视觉形象的核心，需要兼顾美学、功能性和品牌内涵。以下是专业 Logo 应具备的关键因素：\n 1. 简洁性（Simplicity）\n\
+            \    核心作用：易于识别和记忆，避免复杂细节导致视觉混乱。\n    案例：苹果的“咬口苹果”、耐克的“勾型符号”。\n    实现方式：减少多余元素，用几何形状或极简线条传递信息。\n\
+            \ 2. 独特性（Uniqueness）\n    核心作用：在竞争中脱颖而出，避免与同类品牌混淆。\n    案例：麦当劳的“金色拱门”与汉堡王“火焰皇冠”的差异化。\n\
+            \    技巧：结合品牌基因（如创始人故事、核心产品）创新设计。\n 3. 相关性（Relevance）\n    核心作用：与品牌定位、行业或价值观紧密关联。\n\
+            \    案例：星巴克的美人鱼（咖啡与航海贸易的历史联结）。\n    方法：通过颜色、图形或字体暗示行业属性（如科技蓝、环保绿）。\n 4.\
+            \ 适应性（Versatility）\n    核心作用：确保在不同媒介（数字/印刷/小尺寸）下清晰可辨。\n    案例：谷歌的彩色Logo及其单色简化版。\n\
+            \    设计技巧：\n      提供横版、竖版、图标等多种变体。\n      测试黑白、反色、缩小至16px的效果。\n 5. 色彩策略（Color\
+            \ Psychology）\n    核心作用：传递品牌情绪，增强辨识度。\n    常见搭配：\n      红色：激情（可口可乐）、活力（Netflix）。\n\
+            \      蓝色：信任（Facebook）、专业（IBM）。\n    注意点：确保Logo在单色模式下仍有效（如印章、雕刻场景）。\n\
+            \ 6. 平衡与比例（Balance & Proportion）\n    核心作用：创造视觉和谐感，避免元素失衡。\n    方法：使用黄金比例、对称或对比构图（如Adidas的三条纹比例）。\n\
+            \ 7. 持久性（Timelessness）\n    核心作用：避免频繁改版带来的品牌认知成本。\n    案例：可口可乐的Logo百年演变保持核心元素。\n\
+            \    避坑：慎用短暂流行的设计趋势（如过度渐变、3D效果）。\n 8. 文化敏感性（Cultural Awareness）\n    核心作用：避免国际市场的误解或冒犯。\n\
+            \    案例：百事在中东地区调整蓝色比例（因当地文化偏好）。\n    建议：研究目标市场的符号禁忌（如颜色、动物寓意）。\n9. 法律合规（Legal\
+            \ Compliance）\n     1.  确认图形/字体无版权争议。\n\n##note\n1.只给出一种具体的设计方案，不需要第二种！！！！\n\
+            2.字数不能过长，不超过400字。\n3.去除换行符号。"
+        selected: false
+        title: LLM
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 87
+      id: '1742278629805'
+      position:
+        x: 382
+        y: 282
+      positionAbsolute:
+        x: 382
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成1
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#1742278629805.text#}}'
+        type: tool
+      height: 51
+      id: '1742278735821'
+      position:
+        x: 708.8780492931058
+        y: 172.45705823378364
+      positionAbsolute:
+        x: 708.8780492931058
+        y: 172.45705823378364
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - '1742278735821'
+          - files
+          variable: logo1
+        - value_selector:
+          - '1742280484822'
+          - files
+          variable: logo2
+        selected: false
+        title: 结束
+        type: end
+      height: 114
+      id: '1742279917726'
+      position:
+        x: 1204
+        y: 290
+      positionAbsolute:
+        x: 1204
+        y: 290
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        desc: ''
+        provider_id: spark
+        provider_name: spark
+        provider_type: builtin
+        selected: false
+        title: 图片生成2
+        tool_configurations: {}
+        tool_label: 图片生成
+        tool_name: spark_img_generation
+        tool_node_version: '2'
+        tool_parameters:
+          prompt:
+            type: mixed
+            value: '{{#1742278629805.text#}}'
+        type: tool
+      height: 51
+      id: '1742280484822'
+      position:
+        x: 708.8780492931058
+        y: 376.1907050087531
+      positionAbsolute:
+        x: 708.8780492931058
+        y: 376.1907050087531
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        author: 长生不老大王
+        desc: ''
+        height: 174
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"根据用户输入的信息提供详细的logo生成策略，此处可以为logo生成设置严格的生成条件","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 174
+      id: '1743494141816'
+      position:
+        x: 432.5594986770981
+        y: 690.5201904662106
+      positionAbsolute:
+        x: 432.5594986770981
+        y: 690.5201904662106
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    - data:
+        author: 长生不老大王
+        desc: ''
+        height: 88
+        selected: false
+        showAuthor: true
+        text: '{"root":{"children":[{"children":[{"detail":0,"format":0,"mode":"normal","style":"","text":"调用工具生成logo","type":"text","version":1}],"direction":"ltr","format":"","indent":0,"type":"paragraph","version":1,"textFormat":0}],"direction":"ltr","format":"","indent":0,"type":"root","version":1}}'
+        theme: blue
+        title: ''
+        type: ''
+        width: 240
+      height: 88
+      id: '1743494262096'
+      position:
+        x: 787.0816900306133
+        y: 712.6399711374411
+      positionAbsolute:
+        x: 787.0816900306133
+        y: 712.6399711374411
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom-note
+      width: 240
+    viewport:
+      x: -10.747343026971748
+      y: -140.83777655437603
+      zoom: 0.9493765020605814
+  rag_pipeline_variables: []
